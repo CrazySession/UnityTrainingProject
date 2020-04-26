@@ -42,17 +42,16 @@ public class PlayerTwo : MonoBehaviour
         if(!(Mathf.Approximately(moveX, 0.0f)))
         {
             idle = false;
-            animator.SetBool("Idle", idle);
         }
         else
         {
             idle = true;
-            animator.SetBool("Idle", idle);
         }
 
         Vector2 moveDir = new Vector2(moveX, 0);
 
         animator.SetFloat("Speed", moveX);
+        animator.SetBool("Idle", idle);
 
         position = position + (moveDir * SPEED * Time.deltaTime);
 
