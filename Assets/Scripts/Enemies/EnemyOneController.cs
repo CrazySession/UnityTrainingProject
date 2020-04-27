@@ -24,7 +24,14 @@ public class EnemyOneController : MonoBehaviour
     void Update()
     {
 
-        compareValue = startPosition.x + enemyPosition.x;
+        if (vertical)
+        {
+            compareValue = startPosition.y + enemyPosition.y;
+        }
+        else
+        {
+            compareValue = startPosition.x + enemyPosition.x;
+        }
 
         if (compareValue > 2)
         {
