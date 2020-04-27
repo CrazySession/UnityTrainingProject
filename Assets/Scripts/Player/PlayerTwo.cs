@@ -11,7 +11,7 @@ public class PlayerTwo : MonoBehaviour
     /* Scale Vector is used to change localScale for animation purpose */ 
 
     public float SPEED = 6.0f;
-    bool idle = true;
+    public bool idle = true;
 
     // Start is called before the first frame update
     void Start()
@@ -58,26 +58,25 @@ public class PlayerTwo : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             moveY = 1.0f;
-            //no need now because there is no proper animation for up/down
-            //scale.x || scale.y ??
+            scale.x = +1;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
             moveY = -1.0f;
-            //no need now because there is no proper animation for up/down
-            //scale.x || scale.y ??
+            scale.x = -1;
         }
 
         //checks if moveX is == 0.0f - Approximately used because float numbers rarely are true 0 once initiated
         //bool variable/function needed to set animation from walking back to idle
-        if (!(Mathf.Approximately(moveX, 0.0f)))
+        if (!(Mathf.Approximately(moveX, 0.0f)) || !(Mathf.Approximately(moveY, 0.0f)))
         {
             idle = false;
         }
         else
         {
             idle = true;
+            animator.SetFloat("Speed", 0.0f);
         }
 
         //creates a new Vector2 var to store the PlayerInput moveDirection
@@ -85,7 +84,16 @@ public class PlayerTwo : MonoBehaviour
         Vector2 moveDir = new Vector2(moveX, moveY).normalized;
 
         //set the animator Parameters to handle correct animation
-        animator.SetFloat("Speed", moveX);
+        if(moveX > 0.5 || moveX < -0.5)
+        {
+            animator.SetFloat("Speed", moveX);
+        }
+
+        if(moveY > 0.5 || moveY < -0.5)
+        {
+            animator.SetFloat("Speed", moveY);
+        }
+
         animator.SetBool("Idle", idle);
 
         //Player Movement
@@ -94,6 +102,8 @@ public class PlayerTwo : MonoBehaviour
         //transfers changed variables to components so they can be updated
         rgb2D.MovePosition(position);
         transform.localScale = scale;
+
+        Debug.Log($"{idle}/{moveX}/{moveY}");
 
     }
 }
