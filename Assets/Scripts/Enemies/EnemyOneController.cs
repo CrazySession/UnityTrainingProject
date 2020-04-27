@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyOneController : MonoBehaviour
 {
-
-    Vector2 startPosition,enemyPosition;
+    /*### No Transition back to Idle animation included just the arrow back ---> not included yet --- not necessary til now ###*/
+    Vector2 startPosition,enemyPosition,scale;
 
     public bool vertical;
     public float SPEED = 3.0f;
@@ -18,12 +18,13 @@ public class EnemyOneController : MonoBehaviour
     {
         startPosition = transform.position;
         enemyPosition = transform.position;
+        scale = transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
         if (vertical)
         {
             compareValue = startPosition.y + enemyPosition.y;
@@ -36,11 +37,13 @@ public class EnemyOneController : MonoBehaviour
         if (compareValue > 2)
         {
             checkMarkReached = false;
+            scale.x = 1;
         }
 
         if (compareValue < -2)
         {
             checkMarkReached = true;
+            scale.x = -1;
         }
 
         if (checkMarkReached)
@@ -67,5 +70,6 @@ public class EnemyOneController : MonoBehaviour
         }
 
         transform.position = enemyPosition;
+        transform.localScale = scale;
     }
 }
