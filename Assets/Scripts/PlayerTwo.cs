@@ -27,6 +27,7 @@ public class PlayerTwo : MonoBehaviour
     {
         //Resets Input to Zero every frame so character won´t move infinite when no more button is pressed
         float moveX = 0.0f;
+        float moveY = 0.0f;
         
         //Player Input
         if (Input.GetKey(KeyCode.D))
@@ -41,9 +42,23 @@ public class PlayerTwo : MonoBehaviour
             scale.x = -1;
         }
 
+        if (Input.GetKey(KeyCode.W))
+        {
+            moveY = 1.0f;
+            //no need now because there is no proper animation for up/down
+            //scale.x || scale.y ??
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            moveY = -1.0f;
+            //no need now because there is no proper animation for up/down
+            //scale.x || scale.y ??
+        }
+
         //checks if moveX is == 0.0f - Approximately used because float numbers rarely are true 0 once initiated
         //bool variable/function needed to set animation from walking back to idle
-        if(!(Mathf.Approximately(moveX, 0.0f)))
+        if (!(Mathf.Approximately(moveX, 0.0f)))
         {
             idle = false;
         }
@@ -54,7 +69,7 @@ public class PlayerTwo : MonoBehaviour
 
         //creates a new Vector2 var to store the PlayerInput moveDirection
         //normalized to set the Vector always to 1. Avoids faster movement while moving diagonal. (e.g. pressing W + D)
-        Vector2 moveDir = new Vector2(moveX, 0).normalized;
+        Vector2 moveDir = new Vector2(moveX, moveY).normalized;
 
         //set the animator Parameters to handle correct animation
         animator.SetFloat("Speed", moveX);
