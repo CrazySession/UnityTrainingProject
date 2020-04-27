@@ -18,8 +18,8 @@ public class PlayerTwo : MonoBehaviour
     {
         rgb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        position = rgb2D.position;
         scale = transform.localScale;
+        position = rgb2D.position;
     }
 
     // Update is called once per frame
@@ -28,7 +28,20 @@ public class PlayerTwo : MonoBehaviour
         //Resets Input to Zero every frame so character won´t move infinite when no more button is pressed
         float moveX = 0.0f;
         float moveY = 0.0f;
-        
+
+
+        //fixing bug where player "teleports" after getting unstuck from object ---- mostly works
+        if((rgb2D.position.x - position.x) > 0.5 || (rgb2D.position.x - position.x) < -0.5)
+        {
+            position = rgb2D.position;
+        }
+
+        if ((rgb2D.position.y - position.y) > 0.5 || (rgb2D.position.y - position.y) < -0.5)
+        {
+            position = rgb2D.position;
+        }
+
+
         //Player Input
         if (Input.GetKey(KeyCode.D))
         {
@@ -81,5 +94,6 @@ public class PlayerTwo : MonoBehaviour
         //transfers changed variables to components so they can be updated
         rgb2D.MovePosition(position);
         transform.localScale = scale;
+
     }
 }

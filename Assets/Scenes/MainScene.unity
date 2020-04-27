@@ -271,5 +271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyOne
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357000394267333, guid: cced101e7f4dc034081bbddab1591ce3,
+        type: 3}
+      propertyPath: SPEED
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cced101e7f4dc034081bbddab1591ce3, type: 3}
