@@ -24,7 +24,7 @@ public class EnemyOneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //set compareValue depending on enemy movement
         if (vertical)
         {
             compareValue = startPosition.y + enemyPosition.y;
@@ -33,7 +33,7 @@ public class EnemyOneController : MonoBehaviour
         {
             compareValue = startPosition.x + enemyPosition.x;
         }
-
+        //check for reachted waypoints and set bool for movement + scale for animation
         if (compareValue > 2)
         {
             checkMarkReached = false;
@@ -45,7 +45,7 @@ public class EnemyOneController : MonoBehaviour
             checkMarkReached = true;
             scale.x = -1;
         }
-
+        //set movement direction according checkMark true or false
         if (checkMarkReached)
         {
             if (vertical)
@@ -68,7 +68,7 @@ public class EnemyOneController : MonoBehaviour
                 enemyPosition.x = enemyPosition.x - SPEED * Time.deltaTime;
             }
         }
-
+        //update gameobject variables
         transform.position = enemyPosition;
         transform.localScale = scale;
     }
