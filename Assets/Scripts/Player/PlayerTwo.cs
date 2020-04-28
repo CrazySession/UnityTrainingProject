@@ -11,7 +11,10 @@ public class PlayerTwo : MonoBehaviour
     /* Scale Vector is used to change localScale for animation purpose */ 
 
     public float SPEED = 6.0f;
-    public bool idle = true;
+    public int maxHealth = 5;
+
+    bool idle = true;
+    int currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,7 @@ public class PlayerTwo : MonoBehaviour
         animator = GetComponent<Animator>();
         scale = transform.localScale;
         position = rgb2D.position;
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -103,7 +107,7 @@ public class PlayerTwo : MonoBehaviour
         rgb2D.MovePosition(position);
         transform.localScale = scale;
 
-        Debug.Log($"{idle}/{moveX}/{moveY}");
+        //Debug.Log($"{idle}/{moveX}/{moveY}");
 
     }
 }
