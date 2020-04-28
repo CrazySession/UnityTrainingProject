@@ -12,9 +12,11 @@ public class PlayerTwo : MonoBehaviour
 
     public float SPEED = 6.0f;
     public int maxHealth = 5;
+    float invincibleTime = 0.0f;
 
     bool idle = true;
     int currentHealth;
+    public float invincibleTimer = 2.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,11 @@ public class PlayerTwo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(invincibleTime > 0.01f)
+        {
+            invincibleTime -= Time.deltaTime;
+        }
+
         //Resets Input to Zero every frame so character won´t move infinite when no more button is pressed
         float moveX = 0.0f;
         float moveY = 0.0f;
@@ -109,5 +116,31 @@ public class PlayerTwo : MonoBehaviour
 
         //Debug.Log($"{idle}/{moveX}/{moveY}");
 
+    }
+
+    public void changeHealth(int amount)
+    {
+        if(invincibleTime > 0.01f)
+        {
+            Debug.Log("cant get hit");
+            return;
+        }
+
+        if (amount < 0)
+        {
+            Debug.Log("Hit");
+        }
+
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
+
+        if(currentHealth == 0)
+        {
+            Debug.Log("You died!");
+            Destroy(gameObject);
+            return;
+        }
+
+        invincibleTime = invincibleTimer;
     }
 }

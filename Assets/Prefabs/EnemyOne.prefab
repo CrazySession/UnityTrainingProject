@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3880669617631669406}
   - component: {fileID: 5695357000394267333}
   - component: {fileID: 5775232832096871138}
+  - component: {fileID: 6430754448100968892}
   m_Layer: 0
   m_Name: EnemyOne
   m_TagString: Untagged
@@ -144,3 +145,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5519403, y: 1.1280427}
   m_EdgeRadius: 0
+--- !u!114 &6430754448100968892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3880669617631669405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f59b99586397e409adacb6b0df0f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
