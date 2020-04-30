@@ -43,7 +43,7 @@ public class EnemyOneController : MonoBehaviour
             scale.x = 1;
         }
 
-        if (compareValue < startCompareValue - 2)
+        if (compareValue < (startCompareValue - 2))
         {
             checkMarkReached = true;
             scale.x = -1;
