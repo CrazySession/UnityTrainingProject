@@ -11,7 +11,7 @@ public class EnemyOneController : MonoBehaviour
     public float SPEED = 3.0f;
     public bool checkMarkReached = true;
 
-    float compareValue;
+    float compareValue, startCompareValue;
 
     // Start is called before the first frame update
     void Start()
@@ -24,23 +24,26 @@ public class EnemyOneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(startPosition);
         //set compareValue depending on enemy movement
         if (vertical)
         {
             compareValue = startPosition.y + enemyPosition.y;
+            startCompareValue = startPosition.y;
         }
         else
         {
             compareValue = startPosition.x + enemyPosition.x;
+            startCompareValue = startPosition.x;
         }
         //check for reachted waypoints and set bool for movement + scale for animation
-        if (compareValue > 2)
+        if (compareValue > (startCompareValue + 2))
         {
             checkMarkReached = false;
             scale.x = 1;
         }
 
-        if (compareValue < -2)
+        if (compareValue < startCompareValue - 2)
         {
             checkMarkReached = true;
             scale.x = -1;
