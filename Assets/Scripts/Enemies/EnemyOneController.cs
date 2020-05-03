@@ -41,7 +41,7 @@ public class EnemyOneController : MonoBehaviour
             scale.x = 1;
         }
 
-        Debug.Log(startPosition.y);
+        //Debug.Log(startPosition.y);
         //set compareValue depending on enemy movement
         if (vertical)
         {

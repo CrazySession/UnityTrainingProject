@@ -78,6 +78,18 @@ public class PlayerTwo : MonoBehaviour
             scale.x = -1;
         }
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            SPEED = 12.0f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            SPEED = 6.0f;
+        }
+
+        Debug.Log(SPEED);
+
         //checks if moveX is == 0.0f - Approximately used because float numbers rarely are true 0 once initiated
         //bool variable/function needed to set animation from walking back to idle
         if (!(Mathf.Approximately(moveX, 0.0f)) || !(Mathf.Approximately(moveY, 0.0f)))
