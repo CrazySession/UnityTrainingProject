@@ -18,6 +18,7 @@ public class PlayerTwo : MonoBehaviour
     bool idle = true;
     int currentHealth;
     public float invincibleTimer = 2.0f;
+    public float power = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,13 @@ public class PlayerTwo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Power:" + power);
+
+        if( power < 5.0f && !Input.GetKey(KeyCode.LeftShift))
+        {
+            power = power + Time.deltaTime;
+        }
+
         if(invincibleTime > 0.01f)
         {
             invincibleTime -= Time.deltaTime;
@@ -79,10 +87,25 @@ public class PlayerTwo : MonoBehaviour
             scale.x = -1;
         }
 
+        /* ### Speed function ### */
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            SPEED = 9.0f;
             speedEffect.Play();
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if( power < 0.1f)
+            {
+                SPEED = 6.0f;
+                speedEffect.Stop();
+            }
+            else
+            {
+                SPEED = 9.0f;
+                power = power - (Time.deltaTime * 2);
+            }
+
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
