@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DashSpeed
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: adf19dc15a475064698009d3aa903b6b, type: 3}
+    totalSpriteSurfaceArea: 42780
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 4cb7b9b52e6ff634d996fa09d0a74305, type: 3}
+  - {fileID: 21300000, guid: b5396be67fea11741b097c1481fb5352, type: 3}
+  - {fileID: 21300000, guid: 8bd3f967242f3e242a60feeb90c7b410, type: 3}
+  - {fileID: 21300000, guid: ba8204987081496419081ce78d6917db, type: 3}
+  - {fileID: 21300000, guid: 8cb1161cd4b52534ba2ec2922764d061, type: 3}
+  - {fileID: 21300000, guid: 11b06cbf4f893364d9735dbb77333dd5, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - dashwind_06
+  - dashwind_03
+  - dashwind_02
+  - dashwind_01
+  - dashwind_05
+  - dashwind_04
+  m_Tag: DashSpeed
+  m_IsVariant: 0

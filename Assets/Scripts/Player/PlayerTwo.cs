@@ -8,6 +8,7 @@ public class PlayerTwo : MonoBehaviour
     Rigidbody2D rgb2D;
     Animator animator;
     Vector2 position,scale;
+    public ParticleSystem speedEffect;
     /* Scale Vector is used to change localScale for animation purpose */ 
 
     public float SPEED = 6.0f;
@@ -78,14 +79,16 @@ public class PlayerTwo : MonoBehaviour
             scale.x = -1;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            SPEED = 12.0f;
+            SPEED = 9.0f;
+            speedEffect.Play();
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             SPEED = 6.0f;
+            speedEffect.Stop();
         }
 
         Debug.Log(SPEED);
