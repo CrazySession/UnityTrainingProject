@@ -103,7 +103,7 @@ public class PlayerTwo : MonoBehaviour
             else
             {
                 SPEED = 9.0f;
-                power = power - (Time.deltaTime * 2);
+                power = power - (Time.deltaTime * 3);
             }
 
         }
