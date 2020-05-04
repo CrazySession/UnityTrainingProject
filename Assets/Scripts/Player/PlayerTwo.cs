@@ -28,7 +28,6 @@ public class PlayerTwo : MonoBehaviour
         scale = transform.localScale;
         position = rgb2D.position;
         currentHealth = maxHealth;
-        power = 5.0f;
     }
 
     // Update is called once per frame
