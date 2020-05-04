@@ -171,8 +171,9 @@ public class PlayerTwo : MonoBehaviour
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
+        UiHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
 
-        if(currentHealth == 0)
+        if (currentHealth == 0)
         {
             Debug.Log("You died!");
             Destroy(gameObject);
