@@ -28,6 +28,7 @@ public class PlayerTwo : MonoBehaviour
         scale = transform.localScale;
         position = rgb2D.position;
         currentHealth = maxHealth;
+        power = 5.0f;
     }
 
     // Update is called once per frame
@@ -113,6 +114,8 @@ public class PlayerTwo : MonoBehaviour
             SPEED = 6.0f;
             speedEffect.Stop();
         }
+
+        UiPowerBar.instance.SetValue(power / 5 );
 
         Debug.Log(SPEED);
 
