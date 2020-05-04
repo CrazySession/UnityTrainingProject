@@ -5,19 +5,25 @@ using UnityEngine.UI;
 
 public class UiTimer : MonoBehaviour
 {
+    public static UiTimer instance { get; private set; }
 
     Text timer;
-    float startTime = 15.0f;
 
-    private void Awake()
+    void Awake()
+    {
+        instance = this;
+    }
+
+    private void Start()
     {
         timer = GetComponent<Text>();
     }
 
-    void Update()
+    public void SetValue(float startTime)
     {
-        startTime = startTime - Time.deltaTime;
         timer.text = startTime.ToString("#.00");
         Debug.Log(timer.text);
     }
 }
+
+

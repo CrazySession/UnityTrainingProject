@@ -19,6 +19,7 @@ public class PlayerTwo : MonoBehaviour
     int currentHealth;
     public float invincibleTimer = 2.0f;
     public float power = 5.0f;
+    public float timer = 15.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,17 @@ public class PlayerTwo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Power:" + power);
+        //Debug.Log("Power:" + power);
+        if(timer > 0.00f)
+        {
+            timer = timer - Time.deltaTime;
+        }
+        else
+        {
+            changeHealth(-1);
+        }
+
+        UiTimer.instance.SetValue(timer);
 
         if( power < 5.0f && !Input.GetKey(KeyCode.LeftShift))
         {
@@ -116,7 +127,7 @@ public class PlayerTwo : MonoBehaviour
 
         UiPowerBar.instance.SetValue(power / 5 );
 
-        Debug.Log(SPEED);
+        //Debug.Log(SPEED);
 
         //checks if moveX is == 0.0f - Approximately used because float numbers rarely are true 0 once initiated
         //bool variable/function needed to set animation from walking back to idle
@@ -155,12 +166,12 @@ public class PlayerTwo : MonoBehaviour
         transform.localScale = scale;
 
         //Debug.Log($"{idle}/{moveX}/{moveY}");
-
     }
 
     public void changeHealth(int amount)
     {
-        if(invincibleTime > 0.01f)
+        Debug.Log(invincibleTime);
+        if (invincibleTime > 0.01f)
         {
             Debug.Log("cant get hit");
             return;
