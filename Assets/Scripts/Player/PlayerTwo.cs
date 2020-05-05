@@ -22,6 +22,8 @@ public class PlayerTwo : MonoBehaviour
     public float power = 5.0f;
     public float timer = 15.0f;
 
+    public float time { get { return timer; } }
+
     // Start is called before the first frame update
     void Start()
     {
