@@ -22,7 +22,7 @@ public class UiTimer : MonoBehaviour
     public void SetValue(float startTime)
     {
         timer.text = startTime.ToString("#.00");
-        Debug.Log(timer.text);
+        //Debug.Log(timer.text);
     }
 }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
+    public AudioClip collectedClip;
 
     public void OnCollisionEnter2D(Collision2D other)
     {
@@ -12,8 +13,8 @@ public class Collision : MonoBehaviour
         if(player != null)
         {
             player.changeHealth(-1);
+            player.PlaySound(collectedClip);
         }
+    
     }
-
-
 }

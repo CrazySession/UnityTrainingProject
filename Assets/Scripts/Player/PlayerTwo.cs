@@ -9,6 +9,7 @@ public class PlayerTwo : MonoBehaviour
     Animator animator;
     Vector2 position,scale;
     public ParticleSystem speedEffect;
+    AudioSource audioSource;
     /* Scale Vector is used to change localScale for animation purpose */ 
 
     public float SPEED = 6.0f;
@@ -26,6 +27,7 @@ public class PlayerTwo : MonoBehaviour
     {
         rgb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         scale = transform.localScale;
         position = rgb2D.position;
         currentHealth = maxHealth;
@@ -170,7 +172,7 @@ public class PlayerTwo : MonoBehaviour
 
     public void changeHealth(int amount)
     {
-        Debug.Log(invincibleTime);
+        //Debug.Log(invincibleTime);
         if (invincibleTime > 0.01f)
         {
             Debug.Log("cant get hit");
@@ -194,5 +196,10 @@ public class PlayerTwo : MonoBehaviour
         }
 
         invincibleTime = invincibleTimer;
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
